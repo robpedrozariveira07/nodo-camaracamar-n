@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Reporte de marketing · Cámara Camarón</title>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0E0F12;--blue:#2B4BFF;--blue-l:#6E86FF;--blue-50:#EEF1FF;--orange:#FF8A3D;--orange-d:#B4532A;--paper:#F4F4F0;--line:#E2E2DC;--muted:#565C6B;--ok:#127A4B;--bad:#B4532A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Geist',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,.big{font-family:'Bricolage Grotesque','Geist',sans-serif;font-stretch:75%;font-weight:800;letter-spacing:-.5px;line-height:.95}
+header{background:var(--ink);color:#fff;padding:28px 0 36px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;gap:6px}
+.brand span{font-size:11px;letter-spacing:4px;font-weight:600;color:#8A8F9C}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;font-weight:600;color:var(--blue-l)}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+header h1{font-size:clamp(40px,7vw,76px);margin:26px 0 10px}
+header h1 b{color:var(--blue-l);font-weight:800}
+header p{color:#C9CDD6;font-size:15px}
+section{padding:34px 0 0}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:6px}
+.sub{color:var(--muted);font-size:15px;margin-bottom:18px}
+.grid{display:grid;gap:14px}
+.kpis{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
+.kpi .l{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.kpi .v{font-family:'Bricolage Grotesque',sans-serif;font-stretch:75%;font-weight:800;font-size:clamp(30px,4vw,42px);line-height:1;margin:10px 0 6px}
+.kpi .d{font-size:13px;color:var(--muted)}
+.kpi.hero{background:var(--blue);border-color:var(--blue);color:#fff}
+.kpi.hero .l,.kpi.hero .d{color:#DCE3FF}
+.up{color:var(--ok);font-weight:600}.down{color:var(--bad);font-weight:600}
+.kpi.hero .up,.kpi.hero .down{color:#fff}
+.funnel{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:860px){.funnel{grid-template-columns:1fr}}
+.step{border-radius:18px;padding:18px;background:#fff;border:1px solid var(--line);position:relative}
+.step .n{font-family:'Bricolage Grotesque',sans-serif;font-stretch:75%;font-weight:800;font-size:34px;line-height:1}
+.step .t{font-weight:600;margin-top:6px}
+.step .r{font-size:13px;color:var(--muted);margin-top:4px}
+.step.on{background:var(--ink);color:#fff;border-color:var(--ink)}.step.on .r{color:#C9CDD6}
+.step.gap{background:#FFF3EA;border:2px dashed var(--orange)}
+.step.gap .n{color:var(--orange-d)}
+.chartbox{overflow-x:auto}
+svg text{font-family:'Geist',system-ui,sans-serif}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:10px}
+.legend b{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:760px}
+th{text-align:left;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:600;padding:10px 12px;border-bottom:2px solid var(--ink)}
+td{padding:14px 12px;border-bottom:1px solid var(--line)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.best{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;background:var(--orange);color:var(--ink);border-radius:999px;padding:2px 8px;margin-left:8px}
+.scroll{overflow-x:auto}
+.two{grid-template-columns:1fr 1fr}
+@media(max-width:860px){.two{grid-template-columns:1fr}}
+ol.list{list-style:none;counter-reset:c;display:grid;gap:12px}
+ol.list li{counter-increment:c;display:flex;gap:12px;font-size:15px}
+ol.list li::before{content:counter(c);flex:none;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:700}
+ol.list.o li::before{background:var(--orange);color:var(--ink)}
+.web{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:22px;padding:26px 28px}
+.web p{color:#C9CDD6;font-size:15px;max-width:620px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:var(--ink);text-decoration:none;font-weight:700;border-radius:999px;padding:14px 22px;min-height:48px}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--blue-l);outline-offset:3px}
+footer{padding:40px 0 50px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <svg width="150" height="49" viewBox="0 0 460 150" role="img" aria-label="nodo"><path d="M20 130 L 440 130" fill="none" stroke="#6E86FF" stroke-width="5" stroke-linecap="round"/><path d="M20 130 L 20 50" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/><path d="M20 90 A 40 40 0 0 1 100 90 L 100 130" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><circle cx="160" cy="90" r="40" fill="none" stroke="#FFFFFF" stroke-width="14"/><circle cx="260" cy="90" r="40" fill="none" stroke="#FFFFFF" stroke-width="14"/><path d="M300 10 L 300 130" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/><circle cx="360" cy="90" r="40" fill="none" stroke="#FFFFFF" stroke-width="14"/><circle cx="20" cy="130" r="9" fill="#0E0F12" stroke="#6E86FF" stroke-width="4"/><circle cx="100" cy="130" r="9" fill="#0E0F12" stroke="#6E86FF" stroke-width="4"/><circle cx="300" cy="10" r="9" fill="#0E0F12" stroke="#6E86FF" stroke-width="4"/><circle cx="440" cy="130" r="9" fill="#0E0F12" stroke="#6E86FF" stroke-width="4"/><circle cx="360" cy="90" r="14" fill="#FF8A3D"/></svg>
+        <span>DIGITAL AGENCY</span>
+      </div>
+      <span class="tag"><i></i>Reporte mensual de marketing</span>
+    </div>
+    <h1><span id="cliente"></span><br><b id="periodo"></b></h1>
+    <p id="rango"></p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>El mes en números</h2>
+    <p class="sub">Meta Ads (Facebook e Instagram). Montos en <span id="moneda"></span>.</p>
+    <div class="grid kpis" id="kpis"></div>
+  </section>
+
+  <section>
+    <h2>Del anuncio a la mesa</h2>
+    <p class="sub">Así avanza la gente desde que ve el anuncio. Lo que va después de la conversación todavía no se mide.</p>
+    <div class="funnel" id="funnel"></div>
+  </section>
+
+  <section>
+    <h2>Conversaciones por semana</h2>
+    <p class="sub">Conversaciones por anuncio cada semana y, abajo, el costo promedio por conversación.</p>
+    <div class="card chartbox"><div id="chart"></div>
+      <div class="legend"><span><b style="background:#2B4BFF"></b>Oferta Nativa</span><span><b style="background:#6E86FF"></b>Flyer</span><span><b style="background:#FFF3EA;border:1px solid #FF8A3D"></b>Costo por conversación (ambos anuncios)</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Resultados por anuncio</h2>
+    <p class="sub">Comparativo de los anuncios activos del mes.</p>
+    <div class="card scroll"><table id="ads"></table></div>
+  </section>
+
+  <section class="grid two">
+    <div class="card"><h2 style="font-size:30px;margin-bottom:14px">Lo que vimos</h2><ol class="list" id="hallazgos"></ol></div>
+    <div class="card"><h2 style="font-size:30px;margin-bottom:14px">Siguientes pasos</h2><ol class="list o" id="pasos"></ol></div>
+  </section>
+
+  <section>
+    <div class="web">
+      <div><span class="tag"><i></i>Nuevo sitio web</span><h2 style="font-size:34px;margin:10px 0 6px">Cámara Camarón ya tiene web</h2>
+      <p>Página con video, especialidades, menú, promoción y ubicación. Todos los botones llevan a Messenger con su etiqueta de origen.</p></div>
+      <a class="btn" id="weblink" href="#" target="_blank" rel="noopener">Ver el sitio web →</a>
+    </div>
+  </section>
+
+  <footer><span>Preparado por Nodo Digital Agency</span><span>Fuente: Meta Ads Manager · atribución 7 días clic / 1 día vista</span></footer>
+</main>
+
+<script>
+const SHEET_ID = '1-_dtEfEp4ZMi-hmdWOGpJ-E6JxaHQJL5s8HODwqZQqc';
+const FALLBACK = {"cliente":"Cámara Camarón","periodo":"Octubre 2026","rango":"1 al 27 de octubre de 2026","moneda":"USD","sitioWeb":"https://robpedrozariveira07.github.io/camara-camaron-web/","resumen":{"inversion":521.6,"conversaciones":473,"costoConversacion":1.1,"alcance":68988,"impresiones":157809,"clics":2831,"ctr":1.79,"cpm":3.31,"frecuencia":2.29,"visitas":null,"prev":{"periodo":"septiembre (28 días)","inversion":523.42,"conversaciones":547,"costoConversacion":0.96}},"semanal":[{"semana":"1–7 oct","nativa":95,"flyer":46,"gastoNativa":73.52,"gastoFlyer":67.78},{"semana":"8–14 oct","nativa":65,"flyer":42,"gastoNativa":66.15,"gastoFlyer":59.87},{"semana":"15–21 oct","nativa":73,"flyer":48,"gastoNativa":72.91,"gastoFlyer":66.3},{"semana":"22–27 oct","nativa":63,"flyer":41,"gastoNativa":61.04,"gastoFlyer":54.03}],"anuncios":[{"nombre":"Oferta Nativa · Tostada gratis","estado":"Activo","conversaciones":296,"costo":0.92,"gasto":273.62,"alcance":41619,"impresiones":78850,"clics":1667,"ctr":2.11,"cpm":3.47,"frecuencia":1.89},{"nombre":"Prospecting · Flyer promo","estado":"Activo","conversaciones":177,"costo":1.4,"gasto":247.98,"alcance":32549,"impresiones":78959,"clics":1164,"ctr":1.47,"cpm":3.14,"frecuencia":2.43}],"hallazgos":["La Oferta Nativa sigue siendo el mejor anuncio: genera el 63% de las conversaciones con el 52% del presupuesto.","El costo de Nativa subió de $0.77 (1ª semana) a ~$1.00, porque el CPM pasó de $3.00 a $3.90. La frecuencia sigue baja (1.4–1.5), así que no es cansancio del anuncio.","El flyer mejoró (CTR 1.26% → 1.73%), pero cada conversación cuesta 52% más que en Nativa.","473 personas escribieron por Messenger. Todavía no medimos cuántas llegaron al restaurante: es la prioridad de noviembre."],"pasos":["Flujo de ManyChat: oferta → día → personas → código por anuncio → recordatorio.","Registro de canjes en caja para medir el costo por mesa.","Mover presupuesto del flyer a Nativa y probar un anuncio en video.","Carta con precios en el chat y en el sitio web.","Paquete para grupos y cumpleaños + retargeting."]};
+
+function parseCSV(t){
+  const rows=[]; let row=[], f='', q=false;
+  for (let i=0;i<t.length;i++){ const c=t[i];
+    if(q){ if(c==='"'){ if(t[i+1]==='"'){f+='"';i++;} else q=false; } else f+=c; }
+    else if(c==='"') q=true; else if(c===','){row.push(f);f='';}
+    else if(c==='\n'){row.push(f);rows.push(row);row=[];f='';} else if(c!=='\r') f+=c; }
+  if(f!==''||row.length){row.push(f);rows.push(row);}
+  return rows;
+}
+async function sheet(name){
+  const url='https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/gviz/tq?tqx=out:csv&headers=1&sheet='+encodeURIComponent(name)+'&_='+Date.now();
+  const r=await fetch(url); if(!r.ok) throw new Error(name+' '+r.status);
+  const t=await r.text(); if(t.trim().startsWith('<')) throw new Error(name+' no es público');
+  return parseCSV(t);
+}
+const num=v=>{ if(v==null||String(v).trim()==='') return null; const x=Number(String(v).replace(/[$,%\s]/g,'')); return isNaN(x)?null:x; };
+const table=rows=>{ const h=rows[0].map(s=>s.trim()); return rows.slice(1).filter(r=>r.join('')!=='').map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]]))); };
+async function load(){
+  try{
+    const [res,sem,ads,notas]=await Promise.all(['Resumen','Semanal','Anuncios','Notas'].map(sheet));
+    const kv={}; res.slice(1).forEach(r=>{ if(r[0]) kv[r[0].trim()]=r[1]; });
+    const d=JSON.parse(JSON.stringify(FALLBACK));
+    ['cliente','periodo','rango','moneda','sitioWeb'].forEach(k=>{ if(kv[k]) d[k]=kv[k]; });
+    ['inversion','conversaciones','costoConversacion','alcance','impresiones','clics','ctr','cpm','frecuencia','visitas'].forEach(k=>{ if(k in kv) d.resumen[k]=num(kv[k]); });
+    d.resumen.prev={periodo:kv.prevPeriodo||'', inversion:num(kv.prevInversion), conversaciones:num(kv.prevConversaciones), costoConversacion:num(kv.prevCostoConversacion)};
+    d.semanal=table(sem).map(s=>({semana:s.semana,nativa:num(s.nativa),flyer:num(s.flyer),gastoNativa:num(s.gastoNativa),gastoFlyer:num(s.gastoFlyer)}));
+    d.anuncios=table(ads).map(a=>({...a,conversaciones:num(a.conversaciones),costo:num(a.costo),gasto:num(a.gasto),alcance:num(a.alcance),impresiones:num(a.impresiones),clics:num(a.clics),ctr:num(a.ctr),cpm:num(a.cpm),frecuencia:num(a.frecuencia)}));
+    const n=table(notas); d.hallazgos=n.filter(x=>x.tipo==='hallazgo').map(x=>x.texto); d.pasos=n.filter(x=>x.tipo==='paso').map(x=>x.texto);
+    return d;
+  }catch(e){ console.warn('Uso datos guardados:',e.message); return FALLBACK; }
+}
+load().then(D => {
+document.title = 'Reporte de marketing · ' + D.cliente + ' · ' + D.periodo;
+
+const R = D.resumen, cur = v => '$' + Number(v).toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
+const n = v => Number(v).toLocaleString('es-MX');
+const el = id => document.getElementById(id);
+el('cliente').textContent = D.cliente; el('periodo').textContent = D.periodo;
+el('rango').textContent = D.rango; el('moneda').textContent = D.moneda; el('weblink').href = D.sitioWeb;
+
+function delta(now, prev, lowerIsBetter){
+  if (prev == null || now == null) return '';
+  const p = (now - prev) / prev * 100, good = lowerIsBetter ? p < 0 : p > 0;
+  const cls = lowerIsBetter === 'neutral' ? '' : (good ? 'up' : 'down');
+  return `<span class="${cls}" style="font-weight:600">${p > 0 ? '▲' : '▼'} ${Math.abs(p).toFixed(1)}%</span> vs ${R.prev.periodo}`;
+}
+const K = [
+  ['Conversaciones iniciadas', n(R.conversaciones), delta(R.conversaciones, R.prev && R.prev.conversaciones), 'hero'],
+  ['Costo por conversación', cur(R.costoConversacion), delta(R.costoConversacion, R.prev && R.prev.costoConversacion, true)],
+  ['Inversión en anuncios', cur(R.inversion), delta(R.inversion, R.prev && R.prev.inversion, 'neutral')],
+  ['Personas alcanzadas', n(R.alcance), 'Frecuencia ' + R.frecuencia + ' veces'],
+  ['Impresiones', n(R.impresiones), 'CPM ' + cur(R.cpm)],
+  ['Clics en el anuncio', n(R.clics), 'CTR ' + R.ctr + '%'],
+  ['Clic → conversación', (R.conversaciones / R.clics * 100).toFixed(1) + '%', 'De cada 100 clics'],
+  ['Visitas al restaurante', R.visitas == null ? 'Por medir' : n(R.visitas), R.visitas == null ? 'Se mide con el código canjeado' : 'Códigos canjeados']
+];
+el('kpis').innerHTML = K.map(k => `<div class="card kpi ${k[3]||''}"><div class="l">${k[0]}</div><div class="v">${k[1]}</div><div class="d">${k[2]||''}</div></div>`).join('');
+
+const F = [
+  [n(R.impresiones), 'Vieron el anuncio', 'Impresiones'],
+  [n(R.clics), 'Le dieron clic', R.ctr + '% de las impresiones'],
+  [n(R.conversaciones), 'Escribieron por Messenger', (R.conversaciones / R.clics * 100).toFixed(1) + '% de los clics', 'on'],
+  [R.visitas == null ? '¿?' : n(R.visitas), 'Llegaron al restaurante', R.visitas == null ? 'Aún no se mide' : '', R.visitas == null ? 'gap' : ''],
+  ['¿?', 'Cuánto consumieron', 'Ticket promedio por mesa', 'gap']
+];
+el('funnel').innerHTML = F.map(s => `<div class="step ${s[3]||''}"><div class="n">${s[0]}</div><div class="t">${s[1]}</div><div class="r">${s[2]}</div></div>`).join('');
+
+(function chart(){
+  const W = 1080, H = 350, pl = 46, pr = 20, pt = 24, pb = 76, S = D.semanal;
+  const tot = S.map(s => Number(s.nativa) + Number(s.flyer)), cpr = S.map((s, i) => (Number(s.gastoNativa) + Number(s.gastoFlyer)) / tot[i]);
+  const ymax = Math.ceil(Math.max(...tot) / 30) * 30;
+  const bw = (W - pl - pr) / S.length, y = v => pt + (H - pt - pb) * (1 - v / ymax);
+  let g = '';
+  for (let t = 0; t <= ymax; t += ymax / 5) g += `<line x1="${pl}" x2="${W - pr}" y1="${y(t)}" y2="${y(t)}" stroke="#E2E2DC"/><text x="${pl - 8}" y="${y(t) + 4}" font-size="12" text-anchor="end" fill="#565C6B">${t}</text>`;
+  S.forEach((s, i) => {
+    const x = pl + i * bw + bw * .22, w = bw * .56, a = Number(s.nativa), b = Number(s.flyer);
+    g += `<rect x="${x}" y="${y(a)}" width="${w}" height="${y(0) - y(a)}" fill="#2B4BFF" rx="4"><title>Nativa: ${a}</title></rect>`;
+    g += `<rect x="${x}" y="${y(a + b)}" width="${w}" height="${y(a) - y(a + b)}" fill="#6E86FF" rx="4"><title>Flyer: ${b}</title></rect>`;
+    g += `<text x="${x + w / 2}" y="${y(a + b) - 8}" font-size="14" font-weight="700" text-anchor="middle" fill="#0E0F12">${a + b}</text>`;
+    g += `<text x="${x + w / 2}" y="${y(a) + 20}" font-size="12" font-weight="600" text-anchor="middle" fill="#fff">${a}</text>`;
+    g += `<text x="${x + w / 2}" y="${H - pb + 22}" font-size="13" text-anchor="middle" fill="#565C6B">${s.semana}</text>`;
+    g += `<rect x="${x + w / 2 - 52}" y="${H - pb + 34}" width="104" height="28" rx="14" fill="#FFF3EA" stroke="#FF8A3D"/><text x="${x + w / 2}" y="${H - pb + 53}" font-size="13" font-weight="700" text-anchor="middle" fill="#B4532A">$${cpr[i].toFixed(2)} / conv.</text>`;
+  });
+  el('chart').innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:640px" role="img" aria-label="Conversaciones por semana y costo por conversación">${g}</svg>`;
+})();
+
+const A = D.anuncios, best = Math.min(...A.map(a => Number(a.costo)));
+el('ads').innerHTML = `<thead><tr><th>Anuncio</th><th class="num">Conversaciones</th><th class="num">Costo / conv.</th><th class="num">Inversión</th><th class="num">Alcance</th><th class="num">Clics</th><th class="num">CTR</th><th class="num">CPM</th><th class="num">Frecuencia</th></tr></thead><tbody>` +
+  A.map(a => `<tr><td><b>${a.nombre}</b>${Number(a.costo) === best ? '<span class="best">Mejor</span>' : ''}<br><small style="color:#565C6B">${a.estado}</small></td><td class="num">${n(a.conversaciones)}</td><td class="num"><b>${cur(a.costo)}</b></td><td class="num">${cur(a.gasto)}</td><td class="num">${n(a.alcance)}</td><td class="num">${n(a.clics)}</td><td class="num">${a.ctr}%</td><td class="num">${cur(a.cpm)}</td><td class="num">${a.frecuencia}</td></tr>`).join('') + '</tbody>';
+el('hallazgos').innerHTML = D.hallazgos.map(t => `<li>${t}</li>`).join('');
+el('pasos').innerHTML = D.pasos.map(t => `<li>${t}</li>`).join('');
+});
+</script>
+</body>
+</html>
