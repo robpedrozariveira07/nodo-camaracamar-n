@@ -85,7 +85,7 @@ footer{padding:40px 0 50px;color:var(--muted);font-size:13px;display:flex;justif
 
 <main class="wrap">
   <section>
-    <h2>El mes en números</h2>
+    <h2>Los números de la semana</h2>
     <p class="sub">Meta Ads (Facebook e Instagram). Montos en <span id="moneda"></span>.</p>
     <div class="grid kpis" id="kpis"></div>
   </section>
@@ -94,6 +94,13 @@ footer{padding:40px 0 50px;color:var(--muted);font-size:13px;display:flex;justif
     <h2>Del anuncio a la mesa</h2>
     <p class="sub">Así avanza la gente desde que ve el anuncio. Lo que va después de la conversación todavía no se mide.</p>
     <div class="funnel" id="funnel"></div>
+  </section>
+
+  <section>
+    <h2>Del chat al cupón</h2>
+    <p class="sub">Lo que pasa en Messenger desde que ManyChat contesta solo (desde el <span id="mcDesde"></span>).</p>
+    <div class="grid" id="mc" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))"></div>
+    <div class="card" style="margin-top:14px"><h3 style="margin:0 0 12px;font-size:16px">Qué botón tocan las personas</h3><div id="mcBtns" style="display:grid;gap:10px"></div></div>
   </section>
 
   <section>
@@ -123,12 +130,12 @@ footer{padding:40px 0 50px;color:var(--muted);font-size:13px;display:flex;justif
     </div>
   </section>
 
-  <footer><span>Preparado por Nodo Digital Agency</span><span>Fuente: Meta Ads Manager · atribución 7 días clic / 1 día vista</span></footer>
+  <footer><span>Preparado por Nodo Digital Agency · <a href="octubre-2026/" style="color:inherit">Reporte de octubre</a></span><span>Fuente: Meta Ads Manager · atribución 7 días clic / 1 día vista</span></footer>
 </main>
 
 <script>
 const SHEET_ID = '1-_dtEfEp4ZMi-hmdWOGpJ-E6JxaHQJL5s8HODwqZQqc';
-const FALLBACK = {"cliente":"Cámara Camarón","periodo":"Octubre 2026","rango":"1 al 27 de octubre de 2026","moneda":"USD","sitioWeb":"https://robpedrozariveira07.github.io/camara-camaron-web/","resumen":{"inversion":521.6,"conversaciones":473,"costoConversacion":1.1,"alcance":68988,"impresiones":157809,"clics":2831,"ctr":1.79,"cpm":3.31,"frecuencia":2.29,"visitas":null,"prev":{"periodo":"septiembre (28 días)","inversion":523.42,"conversaciones":547,"costoConversacion":0.96}},"semanal":[{"semana":"1–7 oct","nativa":95,"flyer":46,"gastoNativa":73.52,"gastoFlyer":67.78},{"semana":"8–14 oct","nativa":65,"flyer":42,"gastoNativa":66.15,"gastoFlyer":59.87},{"semana":"15–21 oct","nativa":73,"flyer":48,"gastoNativa":72.91,"gastoFlyer":66.3},{"semana":"22–27 oct","nativa":63,"flyer":41,"gastoNativa":61.04,"gastoFlyer":54.03}],"anuncios":[{"nombre":"Oferta Nativa · Tostada gratis","estado":"Activo","conversaciones":296,"costo":0.92,"gasto":273.62,"alcance":41619,"impresiones":78850,"clics":1667,"ctr":2.11,"cpm":3.47,"frecuencia":1.89},{"nombre":"Prospecting · Flyer promo","estado":"Activo","conversaciones":177,"costo":1.4,"gasto":247.98,"alcance":32549,"impresiones":78959,"clics":1164,"ctr":1.47,"cpm":3.14,"frecuencia":2.43}],"hallazgos":["La Oferta Nativa sigue siendo el mejor anuncio: genera el 63% de las conversaciones con el 52% del presupuesto.","El costo de Nativa subió de $0.77 (1ª semana) a ~$1.00, porque el CPM pasó de $3.00 a $3.90. La frecuencia sigue baja (1.4–1.5), así que no es cansancio del anuncio.","El flyer mejoró (CTR 1.26% → 1.73%), pero cada conversación cuesta 52% más que en Nativa.","473 personas escribieron por Messenger. Todavía no medimos cuántas llegaron al restaurante: es la prioridad de noviembre."],"pasos":["Flujo de ManyChat: oferta → día → personas → código por anuncio → recordatorio.","Registro de canjes en caja para medir el costo por mesa.","Mover presupuesto del flyer a Nativa y probar un anuncio en video.","Carta con precios en el chat y en el sitio web.","Paquete para grupos y cumpleaños + retargeting."]};
+const FALLBACK = {"cliente": "Cámara Camarón", "periodo": "Noviembre 2026", "rango": "Avance del 1 al 6 de noviembre de 2026 · comparado con 26–31 de octubre", "moneda": "USD", "sitioWeb": "https://robpedrozariveira07.github.io/camara-camaron-web/", "resumen": {"inversion": 119.15, "conversaciones": 184, "costoConversacion": 0.65, "alcance": 28221, "impresiones": 43696, "clics": 823, "ctr": 1.88, "cpm": 2.73, "frecuencia": 1.55, "visitas": null, "prev": {"periodo": "26–31 oct", "inversion": 112.1, "conversaciones": 123, "costoConversacion": 0.91}}, "semanal": [{"semana": "15–21 oct (7 días)", "nativa": 73, "flyer": 48, "gastoNativa": 72.91, "gastoFlyer": 66.3}, {"semana": "22–27 oct (6 días)", "nativa": 63, "flyer": 41, "gastoNativa": 61.04, "gastoFlyer": 54.03}, {"semana": "28–31 oct (4 días)", "nativa": 39, "flyer": 43, "gastoNativa": 36.51, "gastoFlyer": 33.16}, {"semana": "1–6 nov (6 días)", "nativa": 108, "flyer": 76, "gastoNativa": 63.1, "gastoFlyer": 56.05}], "anuncios": [{"nombre": "Oferta Nativa · Tostada gratis", "estado": "Activo · $10/día", "conversaciones": 108, "costo": 0.58, "gasto": 63.1, "alcance": 16980, "impresiones": 23080, "clics": 470, "ctr": 2.04, "cpm": 2.73, "frecuencia": 1.36}, {"nombre": "Prospecting · Flyer promo", "estado": "Activo · $8/día", "conversaciones": 76, "costo": 0.74, "gasto": 56.05, "alcance": 13097, "impresiones": 20616, "clics": 353, "ctr": 1.71, "cpm": 2.72, "frecuencia": 1.57}], "manychat": {"desde": "28 oct", "respuestas": 159, "abrieron": 89.3, "tocaron": 29.6, "cupones": 43, "cuponesAntes": 1, "entraronFlujo": 188, "entraronAntes": 273, "botones": [["Menú y precios", 23], ["Cómo llegar", 8], ["Mi Tostada Gratis", 3], ["Cumpleaños", 1], ["¿Tienen domicilio?", 1], ["Hablar con alguien", 0]]}, "hallazgos": ["184 conversaciones en 6 días, 50% más que en los 6 días anteriores (123), con casi el mismo gasto (+6%). El costo por conversación bajó de $0.91 a $0.65.", "La Oferta Nativa sigue siendo el mejor anuncio: 59% de las conversaciones a $0.58 cada una. El flyer bajó de $0.91 a $0.74.", "Meta cobró menos por mostrar los anuncios (CPM de $3.19 a $2.73), y eso explica parte de la mejora.", "Desde que ManyChat contesta solo (28 oct), 159 personas recibieron respuesta: 89% la abrió y 30% tocó un botón. Lo más pedido es el menú con precios.", "Cupones registrados: 43 desde el 28 de octubre, contra 1 en todo octubre cuando la IA de Meta interrumpía el flujo."], "pasos": ["Flujo nuevo del cupón: día, personas y código por anuncio, sin pedir correo antes.", "Cambiar la pregunta del “2x1” en el anuncio Nativa por “Quiero mi tostada gratis”.", "Respuestas por palabra clave: mascotas, buffet y reservas.", "Formulario para que el mesero registre los códigos canjeados.", "Pasar presupuesto del flyer a Nativa ($0.58 vs $0.74 por conversación)."]};
 
 function parseCSV(t){
   const rows=[]; let row=[], f='', q=false;
@@ -148,6 +155,7 @@ async function sheet(name){
 const num=v=>{ if(v==null||String(v).trim()==='') return null; const x=Number(String(v).replace(/[$,%\s]/g,'')); return isNaN(x)?null:x; };
 const table=rows=>{ const h=rows[0].map(s=>s.trim()); return rows.slice(1).filter(r=>r.join('')!=='').map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]]))); };
 async function load(){
+  return FALLBACK;
   try{
     const [res,sem,ads,notas]=await Promise.all(['Resumen','Semanal','Anuncios','Notas'].map(sheet));
     const kv={}; res.slice(1).forEach(r=>{ if(r[0]) kv[r[0].trim()]=r[1]; });
@@ -195,6 +203,18 @@ const F = [
   [R.visitas == null ? '¿?' : n(R.visitas), 'Llegaron al restaurante', R.visitas == null ? 'Aún no se mide' : '', R.visitas == null ? 'gap' : ''],
   ['¿?', 'Cuánto consumieron', 'Ticket promedio por mesa', 'gap']
 ];
+
+if (D.manychat){ const M=D.manychat; el('mcDesde').textContent=M.desde;
+  const rate=(a,b)=>(a/b*100).toFixed(1)+'%';
+  const C=[['Respondidas automáticamente', n(M.respuestas), 'Personas que escribieron', 'hero'],
+    ['Abrieron la respuesta', M.abrieron.toFixed(0)+'%', 'De las respuestas enviadas'],
+    ['Tocaron un botón', M.tocaron.toFixed(0)+'%', 'Menú, ubicación, cupón…'],
+    ['Cupones entregados', n(M.cupones), `vs ${M.cuponesAntes} en octubre antes del cambio`],
+    ['Tasa de cupón', rate(M.cupones,M.entraronFlujo), `vs ${rate(M.cuponesAntes,M.entraronAntes)} en octubre`]];
+  el('mc').innerHTML=C.map(k=>`<div class="card kpi ${k[3]||''}"><div class="l">${k[0]}</div><div class="v">${k[1]}</div><div class="d">${k[2]}</div></div>`).join('');
+  const mx=Math.max(...M.botones.map(b=>b[1]),1);
+  el('mcBtns').innerHTML=M.botones.map(b=>`<div style="display:grid;grid-template-columns:minmax(120px,170px) 1fr 44px;gap:10px;align-items:center;font-size:14px"><span>${b[0]}</span><span style="height:12px;border-radius:6px;background:#EEF1FF;overflow:hidden"><i style="display:block;height:100%;width:${b[1]/mx*100}%;background:#2B4BFF;border-radius:6px"></i></span><b style="text-align:right;font-variant-numeric:tabular-nums">${b[1]}%</b></div>`).join('');
+}
 el('funnel').innerHTML = F.map(s => `<div class="step ${s[3]||''}"><div class="n">${s[0]}</div><div class="t">${s[1]}</div><div class="r">${s[2]}</div></div>`).join('');
 
 (function chart(){
