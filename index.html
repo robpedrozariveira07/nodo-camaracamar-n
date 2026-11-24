@@ -28,6 +28,19 @@ h2{font-size:clamp(28px,4vw,40px);margin-bottom:6px}
 .grid{display:grid;gap:14px}
 .kpis{grid-template-columns:repeat(4,1fr)}
 @media(max-width:860px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.aud{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:860px){.aud{grid-template-columns:1fr}}
+.aud h3{margin:0 0 4px;font-size:16px}.aud .s{font-size:13px;color:var(--muted);margin:0 0 14px}
+.bars{display:grid;gap:9px}
+.br{display:grid;grid-template-columns:86px 1fr 92px;gap:10px;align-items:center;font-size:14px}
+.br .tr{height:14px;border-radius:7px;background:var(--blue-50);overflow:hidden}.br .tr i{display:block;height:100%;background:var(--blue);border-radius:7px}
+.br b{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}.br b small{color:var(--muted);font-weight:400}
+.split{display:flex;height:34px;border-radius:10px;overflow:hidden;margin:6px 0 10px}
+.split span{display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700;white-space:nowrap}
+.hours{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;align-items:end;height:150px;margin-top:8px}
+.hours i{display:block;background:var(--blue-l);border-radius:4px 4px 0 0;min-height:2px}.hours i.op{background:var(--blue)}
+.hl{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;font-size:10px;color:var(--muted);text-align:center;margin-top:4px;font-variant-numeric:tabular-nums}
+.zone{font-family:'Bricolage Grotesque',sans-serif;font-stretch:75%;font-weight:800;font-size:40px;line-height:1;margin:4px 0 6px}
 .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
 .kpi .l{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--muted)}
 .kpi .v{font-family:'Bricolage Grotesque',sans-serif;font-stretch:75%;font-weight:800;font-size:clamp(30px,4vw,42px);line-height:1;margin:10px 0 6px}
@@ -110,6 +123,12 @@ footer{padding:40px 0 50px;color:var(--muted);font-size:13px;display:flex;justif
   </section>
 
   <section>
+    <h2>¿Quién nos escribe?</h2>
+    <p class="sub">De dónde son, qué edad tienen y a qué hora escriben las personas que inician conversación desde los anuncios (1 al 23 de noviembre).</p>
+    <div class="aud" id="aud"></div>
+  </section>
+
+  <section>
     <h2>Conversaciones por semana</h2>
     <p class="sub">Conversaciones por anuncio cada semana y, abajo, el costo promedio por conversación.</p>
     <div class="card chartbox"><div id="chart"></div>
@@ -141,7 +160,7 @@ footer{padding:40px 0 50px;color:var(--muted);font-size:13px;display:flex;justif
 
 <script>
 const SHEET_ID = '1-_dtEfEp4ZMi-hmdWOGpJ-E6JxaHQJL5s8HODwqZQqc';
-const FALLBACK = {"cliente": "Cámara Camarón", "periodo": "Noviembre 2026", "rango": "Del 1 al 23 de noviembre de 2026 · comparado con el 1 al 23 de octubre", "moneda": "USD", "sitioWeb": "https://robpedrozariveira07.github.io/camara-camaron-web/", "resumen": {"inversion": 442.77, "conversaciones": 581, "costoConversacion": 0.76, "alcance": 80005, "impresiones": 159443, "clics": 2809, "ctr": 1.76, "cpm": 2.78, "frecuencia": 1.99, "visitas": null, "prev": {"periodo": "1–23 oct", "inversion": 441.72, "conversaciones": 403, "costoConversacion": 1.1}}, "semanal": [{"semana": "1–7 nov", "nativa": 115, "flyer": 85, "gastoNativa": 69.99, "gastoFlyer": 63.0}, {"semana": "8–14 nov", "nativa": 80, "flyer": 76, "gastoNativa": 69.97, "gastoFlyer": 62.96}, {"semana": "15–21 nov", "nativa": 78, "flyer": 77, "gastoNativa": 69.96, "gastoFlyer": 62.98}, {"semana": "22–23 nov (2 días)", "nativa": 41, "flyer": 29, "gastoNativa": 24.06, "gastoFlyer": 19.85}], "anuncios": [{"nombre": "Oferta Nativa · Tostada gratis", "estado": "Activo", "conversaciones": 314, "costo": 0.75, "gasto": 233.98, "alcance": 55797, "impresiones": 99342, "clics": 1480, "ctr": 1.49, "cpm": 2.36, "frecuencia": 1.78}, {"nombre": "Prospecting · Flyer promo", "estado": "Activo", "conversaciones": 267, "costo": 0.78, "gasto": 208.79, "alcance": 27629, "impresiones": 60101, "clics": 1329, "ctr": 2.21, "cpm": 3.47, "frecuencia": 2.18}], "manychat": {"desde": "28 oct", "respuestas": null, "abrieron": null, "tocaron": null, "cupones": 98, "cuponesAntes": 1, "entraronFlujo": null, "entraronAntes": null, "botones": []}, "hallazgos": ["Del 1 al 23 de noviembre: 581 conversaciones contra 403 en los mismos días de octubre (+44%), con la misma inversión ($443 vs $442).", "El costo por conversación bajó de $1.10 a $0.76 (−31%). La Oferta Nativa quedó en $0.75 y el Flyer en $0.78; en octubre el Flyer costaba $1.40.", "Cupones de tostada gratis: 98 desde el 28 de octubre, cuando ManyChat empezó a contestar solo. En octubre, con la IA de Meta interrumpiendo, se registró 1.", "El Flyer se está desgastando: cada semana llega a menos gente nueva (14 mil → 11 mil → 9 mil personas) y la frecuencia ya es de 2.2. Necesita creativos nuevos.", "Parte de la mejora es del mercado (Meta cobró menos por mostrar los anuncios: CPM de $3.28 a $2.78); el resto viene de que el chat ya convierte en cupón."], "pasos": ["Lanzar los 3 videos nuevos en un conjunto de prueba (\"Creativos nov\") con música libre de derechos.", "Publicar los Reels orgánicos y el calendario de posts de diciembre.", "Comprar el dominio camaracamaron.com para conectar el sitio web.", "Cambiar la pregunta del “2x1” en la Oferta Nativa por “Quiero mi tostada gratis”.", "Que el mesero registre los códigos canjeados para medir visitas reales y ticket."], "comparativo": {"cols": ["1–23 oct", "1–23 nov"], "filas": [["Conversaciones", [403, 581], "n", false], ["Costo por conversación", [1.1, 0.76], "$", true], ["Inversión", [441.72, 442.77], "$", "neutral"], ["Personas alcanzadas", [61527, 80005], "n", false], ["Impresiones", [134733, 159443], "n", false], ["CPM", [3.28, 2.78], "$", true], ["Clics en el anuncio", [2426, 2809], "n", false], ["CTR", [1.8, 1.76], "%", false], ["Nativa · conversaciones", [252, 314], "n", false], ["Nativa · costo por conv.", [0.92, 0.75], "$", true], ["Flyer · conversaciones", [151, 267], "n", false], ["Flyer · costo por conv.", [1.4, 0.78], "$", true]]}};
+const FALLBACK = {"cliente": "Cámara Camarón", "periodo": "Noviembre 2026", "rango": "Del 1 al 23 de noviembre de 2026 · comparado con el 1 al 23 de octubre", "moneda": "USD", "sitioWeb": "https://robpedrozariveira07.github.io/camara-camaron-web/", "resumen": {"inversion": 442.77, "conversaciones": 581, "costoConversacion": 0.76, "alcance": 80005, "impresiones": 159443, "clics": 2809, "ctr": 1.76, "cpm": 2.78, "frecuencia": 1.99, "visitas": null, "prev": {"periodo": "1–23 oct", "inversion": 441.72, "conversaciones": 403, "costoConversacion": 1.1}}, "semanal": [{"semana": "1–7 nov", "nativa": 115, "flyer": 85, "gastoNativa": 69.99, "gastoFlyer": 63.0}, {"semana": "8–14 nov", "nativa": 80, "flyer": 76, "gastoNativa": 69.97, "gastoFlyer": 62.96}, {"semana": "15–21 nov", "nativa": 78, "flyer": 77, "gastoNativa": 69.96, "gastoFlyer": 62.98}, {"semana": "22–23 nov (2 días)", "nativa": 41, "flyer": 29, "gastoNativa": 24.06, "gastoFlyer": 19.85}], "anuncios": [{"nombre": "Oferta Nativa · Tostada gratis", "estado": "Activo", "conversaciones": 314, "costo": 0.75, "gasto": 233.98, "alcance": 55797, "impresiones": 99342, "clics": 1480, "ctr": 1.49, "cpm": 2.36, "frecuencia": 1.78}, {"nombre": "Prospecting · Flyer promo", "estado": "Activo", "conversaciones": 267, "costo": 0.78, "gasto": 208.79, "alcance": 27629, "impresiones": 60101, "clics": 1329, "ctr": 2.21, "cpm": 3.47, "frecuencia": 2.18}], "manychat": {"desde": "28 oct", "respuestas": null, "abrieron": null, "tocaron": null, "cupones": 98, "cuponesAntes": 1, "entraronFlujo": null, "entraronAntes": null, "botones": []}, "hallazgos": ["Del 1 al 23 de noviembre: 581 conversaciones contra 403 en los mismos días de octubre (+44%), con la misma inversión ($443 vs $442).", "El costo por conversación bajó de $1.10 a $0.76 (−31%). La Oferta Nativa quedó en $0.75 y el Flyer en $0.78; en octubre el Flyer costaba $1.40.", "Cupones de tostada gratis: 98 desde el 28 de octubre, cuando ManyChat empezó a contestar solo. En octubre, con la IA de Meta interrumpiendo, se registró 1.", "El público es mayor: 65% de las conversaciones vienen de personas de 55 años o más, y 97% llega por Facebook. Instagram casi no aporta; los Reels nuevos son la forma de llegar a gente más joven.", "55% de las personas escribe fuera del horario del restaurante, sobre todo de 7 pm a medianoche. Como ManyChat contesta solo, no se pierden; conviene un recordatorio al día siguiente.", "El Flyer se está desgastando: cada semana llega a menos gente nueva (14 mil → 11 mil → 9 mil personas) y la frecuencia ya es de 2.2. Necesita creativos nuevos.", "Parte de la mejora es del mercado (Meta cobró menos por mostrar los anuncios: CPM de $3.28 a $2.78); el resto viene de que el chat ya convierte en cupón."], "pasos": ["Lanzar los 3 videos nuevos en un conjunto de prueba (\"Creativos nov\") con música libre de derechos.", "Publicar los Reels orgánicos y el calendario de posts de diciembre.", "Comprar el dominio camaracamaron.com para conectar el sitio web.", "Cambiar la pregunta del “2x1” en la Oferta Nativa por “Quiero mi tostada gratis”.", "Que el mesero registre los códigos canjeados para medir visitas reales y ticket.", "Agregar al flujo del cupón la pregunta “¿De qué colonia nos visitas?” para saber de qué zonas vienen."], "comparativo": {"cols": ["1–23 oct", "1–23 nov"], "filas": [["Conversaciones", [403, 581], "n", false], ["Costo por conversación", [1.1, 0.76], "$", true], ["Inversión", [441.72, 442.77], "$", "neutral"], ["Personas alcanzadas", [61527, 80005], "n", false], ["Impresiones", [134733, 159443], "n", false], ["CPM", [3.28, 2.78], "$", true], ["Clics en el anuncio", [2426, 2809], "n", false], ["CTR", [1.8, 1.76], "%", false], ["Nativa · conversaciones", [252, 314], "n", false], ["Nativa · costo por conv.", [0.92, 0.75], "$", true], ["Flyer · conversaciones", [151, 267], "n", false], ["Flyer · costo por conv.", [1.4, 0.78], "$", true]]}};
 
 function parseCSV(t){
   const rows=[]; let row=[], f='', q=false;
@@ -224,6 +243,31 @@ if (D.manychat){ const M=D.manychat; el('mcDesde').textContent=M.desde;
   el('mcBtns').innerHTML=M.botones.map(b=>`<div style="display:grid;grid-template-columns:minmax(120px,170px) 1fr 44px;gap:10px;align-items:center;font-size:14px"><span>${b[0]}</span><span style="height:12px;border-radius:6px;background:#EEF1FF;overflow:hidden"><i style="display:block;height:100%;width:${b[1]/mx*100}%;background:#2B4BFF;border-radius:6px"></i></span><b style="text-align:right;font-variant-numeric:tabular-nums">${b[1]}%</b></div>`).join('');
 }
 
+const AUD={zona:{cdmx:442.74,total:442.77,otras:"Morelos y Aguascalientes: menos de $0.05"},
+edad:[["18–24",4,5.88],["25–34",35,29.61],["35–44",56,47.62],["45–54",106,79.50],["55–64",141,104.31],["65+",239,175.85]],
+genero:[["Hombres",353],["Mujeres",224],["Sin dato",4]],
+plataforma:[["Facebook",566,428.09],["Instagram",15,12.96],["Audience Network",0,1.72]],
+horas:[23,8,9,4,6,10,11,19,16,23,21,19,35,26,45,39,37,35,26,34,36,35,38,26]};
+(function(){const A=AUD,tot=A.edad.reduce((a,b)=>a+b[1],0),mx=Math.max(...A.edad.map(e=>e[1]));
+const pct=v=>Math.round(v/tot*100)+'%';
+const edad=A.edad.map(e=>`<div class="br"><span>${e[0]} años</span><span class="tr"><i style="width:${e[1]/mx*100}%"></i></span><b>${e[1]} <small>${pct(e[1])}</small></b></div>`).join('');
+const g=A.genero.filter(x=>x[1]>0),gt=g.reduce((a,b)=>a+b[1],0),gc=['#2B4BFF','#FF8A3D','#9AA0AE'];
+const gen=g.map((x,i)=>`<span style="width:${x[1]/gt*100}%;background:${gc[i]}">${x[1]/gt>0.08?x[0]+' '+Math.round(x[1]/gt*100)+'%':''}</span>`).join('');
+const pl=A.plataforma.filter(x=>x[1]>0),pmx=Math.max(...pl.map(p=>p[1]));
+const plat=pl.map(p=>`<div class="br"><span>${p[0]}</span><span class="tr"><i style="width:${p[1]/pmx*100}%"></i></span><b>${p[1]} <small>${pct(p[1])}</small></b></div>`).join('');
+const hm=Math.max(...A.horas),open=h=>h>=11&&h<19,fuera=A.horas.reduce((a,v,h)=>a+(open(h)?0:v),0);
+const hrs=A.horas.map((v,h)=>`<i class="${open(h)?'op':''}" style="height:${v/hm*100}%" title="${h}:00 · ${v} conversaciones"></i>`).join('');
+const hl=A.horas.map((v,h)=>`<span>${h%3===0?h:''}</span>`).join('');
+el('aud').innerHTML=`
+<div class="card"><h3>Zona</h3><p class="s">Dónde estaban las personas que vieron los anuncios</p>
+<div class="zone">Ciudad de México · ${(A.zona.cdmx/A.zona.total*100).toFixed(1)}%</div>
+<p class="s" style="margin:0">De la inversión, todo cayó en la CDMX dentro del radio alrededor del restaurante (8 km la Oferta Nativa, ~3 km el Flyer). ${A.zona.otras}. Meta no da el dato por colonia; para saberlo, el flujo del cupón puede preguntar “¿De qué colonia nos visitas?”.</p></div>
+<div class="card"><h3>Edad</h3><p class="s">Conversaciones iniciadas por rango de edad</p><div class="bars">${edad}</div></div>
+<div class="card"><h3>Hombres y mujeres</h3><p class="s">Conversaciones iniciadas</p><div class="split">${gen}</div>
+<h3 style="margin-top:18px">Dónde vieron el anuncio</h3><p class="s">Conversaciones por plataforma</p><div class="bars">${plat}</div></div>
+<div class="card"><h3>A qué hora escriben</h3><p class="s">Conversaciones por hora del día, hora del centro de México. En azul fuerte, el horario del restaurante (11 am a 7 pm).</p>
+<div class="hours">${hrs}</div><div class="hl">${hl}</div>
+<p class="s" style="margin:12px 0 0"><b style="color:var(--ink)">${Math.round(fuera/tot*100)}%</b> escribe fuera del horario, sobre todo de 7 pm a medianoche. ManyChat les contesta al momento con el cupón.</p></div>`;})();
 if (D.comparativo){ const Cc=D.comparativo; const fmt=(v,t)=>t==='$'?cur(v):t==='%'?v.toFixed(2)+'%':n(v);
   el('cmp').innerHTML=`<thead><tr><th>Métrica</th>${Cc.cols.map(c=>`<th class="num">${c}</th>`).join('')}<th class="num">Cambio vs ${Cc.cols[0]}</th></tr></thead><tbody>`+
   Cc.filas.map(([k,v,t,low])=>{const L=v.length-1; const p=(v[L]-v[0])/v[0]*100; const good=low===true?p<0:p>0; const cls=low==='neutral'?'':(good?'up':'down');
